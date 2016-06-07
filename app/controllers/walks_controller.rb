@@ -10,7 +10,8 @@ class WalksController < ApplicationController
 	end
 
 	def create
-		walk.create(walk_params)
+		Walk.create(walk_params)
+		redirect_to actiom: :index
 	end
 
 	private

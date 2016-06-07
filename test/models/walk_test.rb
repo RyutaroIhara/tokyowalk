@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class WawlkTest < ActiveSupport::TestCase
+class WalkTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end

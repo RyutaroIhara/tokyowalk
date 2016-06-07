@@ -1,6 +1,6 @@
-class CreateWawlks < ActiveRecord::Migration
+class CreateWalks < ActiveRecord::Migration
 	def change
-		create_table :wawlks do |t|
+		create_table :walks do |t|
 			t.text :title
 			t.string :name
 			t.text :image
