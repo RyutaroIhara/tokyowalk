@@ -1,6 +1,6 @@
 class WalksController < ApplicationController
 	def index
-		@walks = Walk.all
+		@walks = Walk.order('created_at DESC').page(params[:page]).per(5)
 	end
 
 	def show
