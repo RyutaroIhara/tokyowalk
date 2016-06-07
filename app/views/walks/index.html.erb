@@ -1,3 +1,11 @@
 	<div class="contents row">
-		<p><%= @walks %></p>
+		<% @walks.each do |walk| %>
+		<div class="content_post" style="background-image: url(<%= walk.image %>);">
+			<%= walk.title %>
+			<%= simple_format(walk.text) %>
+			<span class="name">
+				<span>投稿者</span><%= walk.name %>
+			</span>
+		</div>
+		<% end %>
 	</div>
