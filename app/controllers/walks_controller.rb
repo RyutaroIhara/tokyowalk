@@ -1,4 +1,7 @@
 class WalksController < ApplicationController
+
+	before_action :move_to_index, except: :index
+
 	def index
 		@walks = Walk.order('created_at DESC').page(params[:page]).per(5)
 	end
@@ -10,12 +13,16 @@ class WalksController < ApplicationController
 	end
 
 	def create
-		Walk.create(walk_params)
-		redirect_to actiom: :index
+		Walk.create(titel: walk_params[:title], name: walk_params[:name], image: walk_params[:image], text: walk_params[:text], user_id: current_user.id)
+		redirect_to action: :index
 	end
 
 	private
 	def walk_params
 		params.permit(:title, :name, :image, :text)
+	end
+
+	def move_to_index
+		redirect_to action: :index unless user_signed_in?
 	end
 end
