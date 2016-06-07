@@ -1,5 +1,6 @@
 class WalksController < ApplicationController
 	def index
+		@walks = "散歩中"
 	end
 
 	def show
