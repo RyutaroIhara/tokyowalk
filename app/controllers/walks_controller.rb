@@ -9,5 +9,11 @@ class WalksController < ApplicationController
 	end
 
 	def create
+		walk.create(walk_params)
+	end
+
+	private
+	def walk_params
+		params.permit(:title, :name, :image, :text)
 	end
 end
