@@ -18,6 +18,26 @@ class WalksController < ApplicationController
 		redirect_to action: :index
 	end
 
+	def destroy
+		walk = Walk.find(params[:id])
+		if walk.user_id == current_user.id
+			walk.destroy
+		end
+		redirect_to action: :index
+	end
+
+	def edit
+		@walk = Walk.find(params[:id])
+	end
+
+	def update
+		walk = Walk.find(params[:id])
+		if walk.user_id == current_user.id
+			walk.update(walk_params)
+		end
+		redirect_to action: :index
+	end
+
 	private
 	def walk_params
 		# params.permit(:title, :name, :image, :text)

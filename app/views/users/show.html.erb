@@ -2,8 +2,9 @@
     <p><%= @nickname %>さんの投稿一覧</p>
     <% @walks.each do |walk| %>
       <div class="content_post" style="background-image: url(<%= walk.image %>);">
+      <%= walk.title %>
         <%= simple_format(walk.text) %>
-        <span class="name"><%= walk.name %></span>
+        <!-- <span class="name"><%= walk.user.Nickname %></span> -->
       </div>
     <% end %>
     <%= paginate(@walks) %>
