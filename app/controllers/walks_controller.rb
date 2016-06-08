@@ -7,6 +7,7 @@ class WalksController < ApplicationController
 	end
 
 	def show
+		@walk = Walk.find(params[:id])
 	end
 
 	def new

@@ -1,19 +1,22 @@
 	<div class="contents row">
 		<% @walks.each do |walk| %>
 		<div class="content_post" style="background-image: url(<%= walk.image %>);">
-			<% if user_signed_in? && current_user.id == walk.user_id %>
 			<div class="more">
 				<span><%= image_tag 'arrow_top.png' %></span>
 				<ul class="more_list">
+					<li>
+						<%= link_to '詳細', "/walks/#{walk.id}", method: :get %>
+					</li>
+					<% if user_signed_in? && current_user.id == walk.user_id %>
 					<li>
 						<%= link_to '編集', "/walks/#{walk.id}/edit", method: :get %>
 					</li>
 					<li>
 						<%= link_to '削除', "/walks/#{walk.id}", method: :delete %>
 					</li>
+					<% end %>
 				</ul>
 			</div>
-			<% end %>
 			<%= walk.title %>
 			<%= simple_format(walk.text) %>
 			<span class="name">
