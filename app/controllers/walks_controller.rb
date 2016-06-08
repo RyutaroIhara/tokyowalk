@@ -13,7 +13,7 @@ class WalksController < ApplicationController
 	end
 
 	def create
-		Walk.create(titel: walk_params[:title], name: walk_params[:name], image: walk_params[:image], text: walk_params[:text], user_id: current_user.id)
+		Walk.create(title: walk_params[:title], name: walk_params[:name], image: walk_params[:image], text: walk_params[:text], user_id: current_user.id)
 		redirect_to action: :index
 	end
 
