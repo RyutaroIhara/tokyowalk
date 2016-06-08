@@ -3,7 +3,7 @@ class WalksController < ApplicationController
 	before_action :move_to_index, except: :index
 
 	def index
-		@walks = Walk.order('created_at DESC').page(params[:page]).per(5)
+		@walks = Walk.includes(:user).order('created_at DESC').page(params[:page]).per(5)
 	end
 
 	def show
