@@ -1,6 +1,6 @@
 class WalksController < ApplicationController
 
-	before_action :move_to_index, except: :index
+	before_action :move_to_index, except: [:index, :show]	#index以外にもログインしていない状態でshowアクションに飛べるようにする
 
 	def index
 		@walks = Walk.includes(:user).order('created_at DESC').page(params[:page]).per(5)
@@ -8,6 +8,7 @@ class WalksController < ApplicationController
 
 	def show
 		@walk = Walk.find(params[:id])
+		@reviews = @walk.reviews.includes(:user)
 	end
 
 	def new

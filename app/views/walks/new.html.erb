@@ -1,9 +1,12 @@
 	<div class="contents row">
+	<div class="container">
 		<%= form_tag('/walks', method: :post) do %>
+		<h3>投稿する</h3>
 			<input placeholder="title" type="text" name="title">
 			<!-- <input placeholder="name" type="text" name="name"> -->
 			<input placeholder="image:URL" type="text" name="image">
 			<textarea placeholder="text" name="text" cols="30" rows="10"></textarea>
 			<input type="submit" value="SENT">
 		<% end %>
+	</div>
 	</div>

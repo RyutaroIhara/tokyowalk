@@ -29,5 +29,18 @@
         <input type="submit" value="SENT">
       <% end %>
     <% end %>
+
+    <!-- ここからコメント一覧 -->
+    <div class="comments">   
+      <h4>＜レビュー一覧＞</h4>
+      <% if @reviews %>
+        <% @reviews.each do |review| %>
+          <p>
+            <strong><%= link_to review.user.Nickname, "/users/#{review.user_id}" %>：</strong>
+            <%= review.text %>
+          </p>
+        <% end %>
+      <% end %>
+    </div>
   </div>
 </div>
